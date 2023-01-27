@@ -80,6 +80,8 @@ public class CartController {
            index++;
         }
 
+        cartService.register(customer,carts);
+
         System.out.println("Carts......"+ carts);
 
         return "redirect:/login";

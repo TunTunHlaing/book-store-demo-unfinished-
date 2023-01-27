@@ -40,7 +40,7 @@ public class Customer extends IdClass{
         roles.add(role);
     }
 
-    public void customerOrderBook(CustomerOrderBook customerOrderBook){
+    public void addCustomerOrderBook(CustomerOrderBook customerOrderBook){
         customerOrderBook.setCustomer(this);
         customerOrderBooks.add(customerOrderBook);
     }

@@ -43,4 +43,21 @@ public class Book extends IdClass{
         customerOrderBook.setBook(this);
         customerOrderBooks.add(customerOrderBook);
     }
+
+    public Book() {
+    }
+
+    public Book(int id , String title, LocalDate yearPublished, String publisher, double price, int quantity, String genre, String description, Category category, Author author, String imgUrl) {
+        this.title = title;
+        this.yearPublished = yearPublished;
+        this.publisher = publisher;
+        this.price = price;
+        this.quantity = quantity;
+        this.genre = genre;
+        this.description = description;
+        this.category = category;
+        this.author = author;
+        this.imgUrl = imgUrl;
+        setId(id);
+    }
 }
