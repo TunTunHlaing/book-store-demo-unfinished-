@@ -3,11 +3,14 @@ package com.example.bookstoredemo.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -32,4 +35,12 @@ public class Book extends IdClass{
     private Author author;
 
     private String imgUrl;
+
+    @OneToMany(mappedBy = "book")
+    private List<CustomerOrderBook> customerOrderBooks = new ArrayList<>();
+
+    public void addCustomerOrderBook(CustomerOrderBook customerOrderBook){
+        customerOrderBook.setBook(this);
+        customerOrderBooks.add(customerOrderBook);
+    }
 }

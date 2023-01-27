@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/userViewLayout :: layout(~{::main})}" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+  <main role="main">
+    <div class="container my-4 bg-light">
+
+      <form th:action="@{/cart/checkout}" th:object="${bookDto}" method="post">
+
+      <div th:with="items = ${carts}">
+
+        <div th:if="${!items.isEmpty()}">
+
+            <table class="table table-striped" >
+              <thead>
+              <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="cat : ${carts}">
+                <td th:text="${cat.id}"></td>
+                <td th:text="${cat.title}"></td>
+                <td th:text="${cat.author.name}"></td>
+                <td><input type="number" min="1" class="form-control" th:field="*{itemsList}" value="Check Out"></td>
+                <td th:text="${'$ ' + cat.price}"></td>
+                <td><a th:href="@{'/cart/delete?id=' + ${cat.id}}" class="btn btn-outline-danger">Delete</a></td>
+              </tr>
+              </tbody>
+            </table>
+
+        </div>
+
+        <div th:unless="${!items.isEmpty()}">
+          <h1 class="text-center text-info">No Content</h1>
+        </div>
+
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <input type="submit" value="CheckOut" class="btn btn-primary mr-2">
+          <a th:href="@{/user/book/all}" class="btn btn-outline-secondary mr-2">Continue Shopping</a>
+          <a th:href="@{/cart/clear}" class="btn btn-outline-info">Clear Cart</a>
+        </div>
+      </div>
+
+      </form>
+
+    </div>
+
+  </main>
+</body>
+</html>

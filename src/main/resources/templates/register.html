@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/userViewLayout :: layout(~{::main})}" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+  <main role="main">
+      <div class="container mt-5">
+          <div class="row">
+              <div class="col">
+
+                  <div class="card">
+
+                      <div class="card-header">
+                          <h3>Register Form</h3>
+                      </div>
+
+                      <div class="card-body">
+                          <form th:action="@{/cart/register-form}" method="post" th:object="${customer}">
+
+                              <div class="form-group">
+                                  <label for="username">User Name</label>
+                                  <input type="text" id="username" class="form-control" th:field="*{username}"
+                                  placeholder="Enter User Name">
+                              </div>
+
+                              <div class="form-group">
+                                  <label for="pwd">Password</label>
+                                  <input type="password" id="pwd" class="form-control" th:field="*{password}"
+                                  placeholder="Enter Password">
+                              </div>
+
+                              <div class="form-group">
+                                  <label for="streetName">Street Name</label>
+                                  <input type="text" id="streetName" th:field="*{address.streetName}" class="form-control"
+                                         placeholder="Enter Street Name...">
+                              </div>
+
+                              <div class="form-group">
+                                  <label for="phone">Phone Number</label>
+                                  <input type="text" id="phone" th:field="*{address.phoneNumber}" class="form-control"
+                                         placeholder="Enter Phone Number...">
+                              </div>
+
+                              <div class="form-group">
+                                  <label for="country">Country</label>
+                                  <input type="text" id="country" th:field="*{address.country}" class="form-control"
+                                         placeholder="Enter Country...">
+
+                              </div>
+
+                              <input type="submit" value="Save" class="btn btn-primary btn-lg">
+
+                          </form>
+                      </div>
+
+                  </div>
+
+              </div>
+          </div>
+      </div>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+  <div th:fragment="headview">
+    <nav class="navbar navbar-expand-md navbar-dark">
+      <a href="#" class="navbar-brand">
+        <h3 class="mb-0">Book Store</h3>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="myNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="#" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Explore</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="showcase" class="d-flex align-items-center justify-content-center">
+      <div id="overlay"></div>
+      <div id="header" class="container text-white text-center">
+        <h3 class="display-4 mb-0">MODERN BUYING BOOKS</h3>
+        <h1 class="display-1">BOOK STORE</h1>
+        <p class="lead d-none d-md-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi,
+          mollitia.</p>
+
+      </div>
+
+    </section>
+
+      <a  th:href="@{/user/book/all}" id="book"   class=" btn btn-sm btn-success mt-4">Book Now</a>
+
+  </div>
+
+</body>
+</html>
